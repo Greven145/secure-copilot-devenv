@@ -1,0 +1,16 @@
+version: 2
+updates:
+  - package-ecosystem: "nuget"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "Greven145"
+    assignees:
+      - "Greven145"
+    commit-message:
+      prefix: "chore(deps)"
+      include: "scope"
+    cooldown:
+      default-days: 7

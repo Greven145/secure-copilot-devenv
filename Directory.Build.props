@@ -1,0 +1,45 @@
+<Project>
+  <PropertyGroup>
+    <!-- Language and Framework -->
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+
+    <!-- Output -->
+    <OutputType>Library</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+    <!-- Build-time Quality Gates -->
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+
+    <!-- Vulnerability and Deprecation Detection -->
+    <NuGetAudit>true</NuGetAudit>
+    <NuGetAuditMode>all</NuGetAuditMode>
+    <NuGetAuditLevel>moderate</NuGetAuditLevel>
+
+    <!-- Package Metadata -->
+    <Authors>GitHub Dev Days Sample</Authors>
+    <Description>Secure Copilot Development Environment - Sample MCP Server</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/Greven145/secure-copilot-devenv</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+
+  <!-- Roslyn Analyzers -->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="8.0.0" />
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="10.27.0" />
+    <PackageReference Include="Meziantou.Analyzer" Version="3.0.104" />
+    <PackageReference Include="Roslynator.Analyzers" Version="4.15.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="17.10.48" />
+  </ItemGroup>
+
+  <!-- Style enforcement -->
+  <ItemGroup>
+    <EditorConfigFiles Include=".editorconfig" />
+  </ItemGroup>
+</Project>

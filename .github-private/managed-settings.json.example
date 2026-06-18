@@ -1,0 +1,6 @@
+{
+  "_comment": "Example only. In production this lives in the org's .github-private repo (or legacy .github/copilot/settings.json) and is enterprise-admin managed - GitHub pulls it automatically for Copilot Business/Enterprise users. A developer cannot set this in their own ~/.copilot/settings.json.",
+  "permissions": {
+    "disableBypassPermissionsMode": "disable"
+  }
+}

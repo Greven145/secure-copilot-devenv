@@ -1,0 +1,107 @@
+{
+  "name": "secure-copilot-devenv",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "containerUser": "vscode",
+  "remoteUser": "vscode",
+  "workspaceFolder": "/workspaces/secure-copilot-devenv",
+  "initializeCommand": ".devcontainer/init.sh",
+  "postCreateCommand": ".devcontainer/post-create.sh",
+  "postStartCommand": "pre-commit install && .devcontainer/post-start.sh",
+  "forwardPorts": [
+    8080,
+    6274,
+    6277,
+    9222,
+    15178
+  ],
+  "portsAttributes": {
+    "8080": {
+      "label": "MCP Server",
+      "onAutoForward": "notify"
+    },
+    "6274": {
+      "label": "MCP Inspector Client",
+      "onAutoForward": "notify"
+    },
+    "6277": {
+      "label": "MCP Inspector Proxy",
+      "onAutoForward": "notify"
+    },
+    "9222": {
+      "label": "Chromium CDP",
+      "onAutoForward": "notify"
+    },
+    "15178": {
+      "label": "Aspire Dashboard",
+      "onAutoForward": "notify"
+    }
+  },
+  "mounts": [
+    "source=dev-shared-copilot,target=/home/vscode/.copilot,type=volume",
+    "source=dev-shared-azure,target=/home/vscode/.azure,type=volume",
+    "source=dev-shared-gh-config,target=/home/vscode/.config/gh,type=volume",
+    "source=dev-shared-ssh,target=/home/vscode/.ssh,type=volume",
+    "source=dev-shared-cache,target=/home/vscode/.cache,type=volume",
+    "source=dev-shared-npm-cache,target=/home/vscode/.npm,type=volume",
+    "source=dev-shared-nuget,target=/home/vscode/.nuget,type=volume",
+    "source=dev-shared-vscode-server-user,target=/home/vscode/.vscode-server/data/User,type=volume",
+    "source=dev-shared-bash-history,target=/home/vscode/commandhistory,type=volume",
+    "source=ai-dev-env-copilot-memory,target=/home/vscode/.memory,type=volume"
+  ],
+  "containerEnv": {
+    "TZ": "UTC",
+    "NODE_ENV": "development",
+    "DOTNET_CLI_TELEMETRY_OPTOUT": "1",
+    "DO_NOT_TRACK": "1",
+    "LANG": "en_US.UTF-8",
+    "LC_ALL": "en_US.UTF-8",
+    "NODE_TLS_REJECT_UNAUTHORIZED": "1"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-dotnettools.csharp",
+        "ms-dotnettools.csdevkit",
+        "ms-azuretools.vscode-docker",
+        "ms-dotnettools.dotnet-aspire",
+        "github.copilot",
+        "github.copilot-chat"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "search.exclude": {
+          "**/bin": true,
+          "**/obj": true,
+          "**/node_modules": true
+        },
+        "files.watcherExclude": {
+          "**/bin/**": true,
+          "**/obj/**": true,
+          "**/node_modules/**": true
+        }
+      }
+    }
+  },
+  "runArgs": [
+    "--init",
+    "--cap-drop=ALL",
+    "--cap-add=NET_BIND_SERVICE",
+    "--security-opt=no-new-privileges",
+    "--memory=4g",
+    "--cpus=2",
+    "-h",
+    "secure-copilot-devenv"
+  ],
+  "updateRemoteUserUID": true,
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "version": "latest",
+      "dockerDashInDocker": true,
+      "moby": false,
+      "installDockerBuildx": false
+    }
+  }
+}

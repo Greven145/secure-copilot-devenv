@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "preToolUse": [
+      {
+        "matcher": "shell",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .github/hooks/deny-risky.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

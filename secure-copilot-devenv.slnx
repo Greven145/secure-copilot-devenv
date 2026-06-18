@@ -1,0 +1,5 @@
+<Project>
+  <ItemGroup>
+    <ProjectReference Include="src/SampleMcpServer/SampleMcpServer.csproj" />
+  </ItemGroup>
+</Project>

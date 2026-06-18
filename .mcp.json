@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "github": {
+      "_comment": "Default to read-only with only the toolsets actually needed. Drop /readonly and narrow X-MCP-Toolsets only when write access is justified for a specific session.",
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/readonly",
+      "headers": { "X-MCP-Toolsets": "repos,issues" }
+    },
+    "microsoft-docs": {
+      "url": "https://learn.microsoft.com/api/mcp"
+    },
+    "context7": {
+      "command": "npx",
+      "args": ["@upstash/context7-mcp@latest"]
+    }
+  }
+}

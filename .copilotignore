@@ -1,0 +1,27 @@
+# .copilotignore -- Copilot content exclusion.
+#
+# CRITICAL LIMITATION: these exclusions apply to IDE inline suggestions and
+# Copilot Chat context ONLY. They do NOT apply to Copilot CLI, the coding
+# agent, or IDE agent/edit modes -- those surfaces can still read every path
+# below. Sandbox mode (working-dir restriction), the --deny-tool wrapper,
+# the preToolUse hook, and Gitleaks/detect-secrets pre-commit scanning are
+# the compensating controls for agent surfaces.
+
+# Secrets and credentials
+.env
+.env.*
+**/secrets/**
+**/credentials/**
+appsettings.*.json
+**/certificates/**
+*.pfx
+*.pem
+*.key
+
+# Client-specific directories (update per engagement)
+**/client-confidential/**
+
+# Infrastructure secrets
+**/terraform.tfvars
+**/*.tfstate
+**/*.tfstate.backup
