@@ -31,15 +31,9 @@
 
   <!-- Roslyn Analyzers -->
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="8.0.0" />
-    <PackageReference Include="SonarAnalyzer.CSharp" Version="10.27.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="10.0.301" />
     <PackageReference Include="Meziantou.Analyzer" Version="3.0.104" />
     <PackageReference Include="Roslynator.Analyzers" Version="4.15.0" />
     <PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="17.10.48" />
-  </ItemGroup>
-
-  <!-- Style enforcement -->
-  <ItemGroup>
-    <EditorConfigFiles Include=".editorconfig" />
   </ItemGroup>
 </Project>

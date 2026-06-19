@@ -95,13 +95,5 @@
     "-h",
     "secure-copilot-devenv"
   ],
-  "updateRemoteUserUID": true,
-  "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {
-      "version": "latest",
-      "dockerDashInDocker": true,
-      "moby": false,
-      "installDockerBuildx": false
-    }
-  }
+  "updateRemoteUserUID": true
 }
